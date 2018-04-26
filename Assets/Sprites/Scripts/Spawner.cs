@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour {
         {
             float random = Random.Range(-3f, 3f);
             clone=Instantiate(meteoro, new Vector3(random, 8, 0), Quaternion.identity);
-            clone.SetActive(true);
+           
             elapsedTime = 0;
         }
 
