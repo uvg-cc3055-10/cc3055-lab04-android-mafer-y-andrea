@@ -18,23 +18,15 @@ public class Ship : MonoBehaviour {
     void Update() {
         if (GameController.instance.gameOver == false)
         {
-            if (transform.position.y < 2.5 && transform.position.y > -2.5)
-            {
+            
+                speed = 10f;
                 float movX = Input.acceleration.x;
                 rb.transform.Translate(Vector2.right * speed * movX * Time.deltaTime);
-                GameController.instance.score += (Time.deltaTime);
-            }
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log(GameController.instance.score++);
-
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
         GameController.instance.gameOver = true;
     }
-
 }

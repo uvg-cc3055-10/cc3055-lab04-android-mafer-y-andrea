@@ -16,15 +16,18 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (gameOver == false)
+        {
+            score += (Time.deltaTime);
+        }
         if (gameOver == true)
         {
             SceneManager.LoadScene("Menu");
         }
-        if(score > PlayerPrefs.GetFloat("HighScore"))
+        if (score > PlayerPrefs.GetFloat("HighScore"))
         {
             PlayerPrefs.SetFloat("HighScore", score);
         }
-		
-	}
+
+    }
 }

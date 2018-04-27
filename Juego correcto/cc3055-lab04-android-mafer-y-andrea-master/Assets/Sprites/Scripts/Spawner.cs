@@ -5,10 +5,10 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
     public GameObject meteoro;
-    private float spawnTime = 4f;
+    public float spawnTime = 4f;
     private float elapsedTime = 0f;
     private GameObject clone;
-
+    
     // Use this for initialization
     void Start () {
 		
