@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public Boolean gameOver = false;
-    public int score = 0;
+    public float score = 0;
     public static GameController instance;
 
     // Use this for initialization
@@ -16,9 +16,14 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (gameOver == true)
         {
             SceneManager.LoadScene("Menu");
+        }
+        if(score > PlayerPrefs.GetFloat("HighScore"))
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
         }
 		
 	}
