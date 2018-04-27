@@ -16,11 +16,19 @@ public class Ship : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (transform.position.y < 2.5 && transform.position.y > -2.5)
+        if (GameController.instance.gameOver == false)
         {
-            float movX = Input.acceleration.x;
-            rb.transform.Translate(Vector2.right * speed * movX * Time.deltaTime);
+            if (transform.position.y < 2.5 && transform.position.y > -2.5)
+            {
+                float movX = Input.acceleration.x;
+                rb.transform.Translate(Vector2.right * speed * movX * Time.deltaTime);
+            }
         }
-
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameController.instance.gameOver = true;
+    }
+
 }
